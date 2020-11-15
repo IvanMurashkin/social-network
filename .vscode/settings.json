@@ -1,0 +1,36 @@
+{
+    "cSpell.words": [
+      "Clusterer",
+      "Placemark",
+      "graphql",
+      "iphonesimulator",
+      "nestjs",
+      "postgres",
+      "testcontainers",
+      "typeorm",
+      "xcworkspace"
+    ],
+    "editor.tabSize": 2,
+    "rest-client.previewOption": "exchange",
+    "javascript.implicitProjectConfig.checkJs": true,
+    "javascript.preferences.quoteStyle": "double",
+    "typescript.preferences.quoteStyle": "double",
+    "typescript.suggest.completeFunctionCalls": true,
+    "editor.formatOnSave": true,
+    "typescript.format.enable": false,
+    "yaml.format.enable": false,
+    "eslint.enable": true,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "typescript",
+        "autoFix": true
+      },
+      {
+        "language": "typescriptreact",
+        "autoFix": true
+      }
+    ]
+  }
+  

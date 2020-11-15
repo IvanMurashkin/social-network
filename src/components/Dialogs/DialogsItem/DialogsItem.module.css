@@ -1,0 +1,11 @@
+.dialog {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  padding: 10px 0;
+  color: black;
+  display: block;
+}
+
+.active {
+  font-size: 20px;
+}

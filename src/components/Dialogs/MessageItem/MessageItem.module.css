@@ -1,0 +1,11 @@
+.message_item:nth-child(even) {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+}
+
+.message_item img {
+  width: 50px;
+  border-radius: 30px;
+  order: 1;
+}

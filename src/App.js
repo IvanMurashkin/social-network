@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react"
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile"; 
+import Dialogs from "./components/Dialogs/Dialogs"
+import News from "./components/News/News"
+import Music from "./components/Music/Music"
+import Settings from "./components/Settings/Settings"
+
+import {BrowserRouter, Route} from "react-router-dom"
+
 import './App.css';
 
-function App() {
+function App({ state, actions }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Header />      
+        <div className="content">
+          <Navbar state={state.sidebar}/>
+          <div className="main">
+            <Route path="/dialogs" render={() => <Dialogs state={state.dialogsPage} 
+                                                          addMessage={actions.addMessage}
+                                                          inputMessageText={actions.inputMessageText}/>}/>
+            <Route path="/music" render={Music}/> 
+            <Route path="/news" render={News}/> 
+            <Route path="/settings" render={Settings}/> 
+            <Route path="/profile" render={() => <Profile state={state.profilePage} 
+                                                          addPost={actions.addPost} 
+                                                          inputText={actions.inputText}/>}
+                                                  />  
+          </div>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

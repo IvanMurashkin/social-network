@@ -1,0 +1,16 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  height: 100%;
+}
+
+.dialog_items {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-right: 10px;
+}
+
+.messages {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+}

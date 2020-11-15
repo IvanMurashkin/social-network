@@ -1,0 +1,16 @@
+.sidebar {
+  background-color: burlywood;
+  flex: 1 4 100%;
+  padding: 20px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 5px 0px;
+}
+
+.item .active {
+  color: gold;
+}

@@ -1,0 +1,9 @@
+.friends img {
+  width: 50px;
+  border-radius: 30px;
+  padding: 0 5px;
+}
+
+.friend_items {
+  display: flex;
+}
