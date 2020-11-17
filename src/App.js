@@ -12,7 +12,7 @@ import {BrowserRouter, Route} from "react-router-dom"
 
 import './App.css';
 
-function App({ state, actions }) {
+function App({ state, dispatch }) {
   return (
     <BrowserRouter>
       <div className="app">
@@ -21,14 +21,12 @@ function App({ state, actions }) {
           <Navbar state={state.sidebar}/>
           <div className="main">
             <Route path="/dialogs" render={() => <Dialogs state={state.dialogsPage} 
-                                                          addMessage={actions.addMessage}
-                                                          inputMessageText={actions.inputMessageText}/>}/>
+                                                          dispatch={dispatch}/>}/>
             <Route path="/music" render={Music}/> 
             <Route path="/news" render={News}/> 
             <Route path="/settings" render={Settings}/> 
             <Route path="/profile" render={() => <Profile state={state.profilePage} 
-                                                          addPost={actions.addPost} 
-                                                          inputText={actions.inputText}/>}
+                                                          dispatch={dispatch}/>}
                                                   />  
           </div>
         </div>

@@ -4,7 +4,7 @@ import DialogsItem from "./DialogsItem/DialogsItem"
 import MessageItem from "./MessageItem/MessageItem"
 import TextArea from "../ui/Textarea/TextArea"
 
-const Dialogs = ({ state, addMessage, inputMessageText }) => {
+const Dialogs = ({ state, dispatch }) => {
   return (
     <div className={s.dialogs}>
       <div className={s.dialog_items}>
@@ -12,7 +12,10 @@ const Dialogs = ({ state, addMessage, inputMessageText }) => {
       </div>
       <div className={s.messages}>
         {state.messages.map((message) => <MessageItem message={message.text} />)}
-        <TextArea addInputData={addMessage} text={state.messageText} inputText={inputMessageText}/>
+        <TextArea 
+          dispatch={dispatch} 
+          text={state.messageText} 
+          actions={{ addAction: "ADD_MESSAGE", inputAction: "INPUT_MESSAGE_TEXT" }}/>
       </div>
     </div>
   )

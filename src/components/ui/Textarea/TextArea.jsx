@@ -1,15 +1,18 @@
 import React from "react"
 import s from "./TextArea.module.css"
 
-const TextArea = ({ addInputData, inputText, text }) => {
+const TextArea = ({ dispatch, text, actions }) => {
   const textAreaRef = React.createRef()
 
   const clickBtnHandler = () => {
-    addInputData()
+    dispatch({ type: actions.addAction })
   }
 
   const inputTextHandler = () => {
-    inputText(textAreaRef.current.value)
+    dispatch({ 
+      type: actions.inputAction, 
+      text: textAreaRef.current.value 
+    })
   }
 
   return (

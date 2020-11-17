@@ -1,76 +1,94 @@
-let renderTemplate = ({state, actions}) => {} 
-
-const state = {
-  dialogsPage: {
-    dialogs: [
-      {id: 1, userName: "Vasya"},
-      {id: 2, userName: "Anna"},
-    ],
-    messages: [
-      {id: 1, text: "Ljdso msh j hbasdjf"},
-      {id: 2, text: "Yur jsls lsaldvfnj"},
-    ],
-    messageText: '',
+const store = {
+  _state: {
+    dialogsPage: {
+      dialogs: [
+        {id: 1, userName: "Vasya"},
+        {id: 2, userName: "Anna"},
+      ],
+      messages: [
+        {id: 1, text: "Ljdso msh j hbasdjf"},
+        {id: 2, text: "Yur jsls lsaldvfnj"},
+      ],
+      messageText: '',
+    },
+    profilePage:{  
+      posts: [
+        {id: 1, text: "Hkjfv kdsjfnsd;k;dknf", like: 5},
+        {id: 2, text: "Rfgdf", like: 2},
+      ],
+      textPost: '',
+    },
+    sidebar: {
+      friends: [
+        {id:1},
+        {id:2},
+      ],
+    },
   },
-  profilePage:{  
-    posts: [
-      {id: 1, text: "Hkjfv kdsjfnsd;k;dknf", like: 5},
-      {id: 2, text: "Rfgdf", like: 2},
-    ],
-    textAreaContent: '',
+
+  _callSubscription() {},
+
+  _inputPostText(text){
+    this._state.profilePage.textPost = text
+    
+    this._callSubscription()
   },
-  sidebar: {
-    friends: [
-      {id:1},
-      {id:2},
-    ],
+
+  _inputMessageText(text) {
+    this._state.dialogsPage.messageText = text
+    
+    this._callSubscription()
   },
-}
 
-const inputText = (text) => {
-  state.profilePage.textAreaContent = text
-  
-  renderTemplate({ state, actions })
-}
+  _addPost() {
+    this._state.profilePage.posts.push(
+      {
+        id: 5,
+        text: this._state.profilePage.textPost,
+        like: 0
+      }
+    )
+    this._state.profilePage.textPost = ''
+    this._callSubscription()
+  },
 
-const inputMessageText = (text) => {
-  state.dialogsPage.messageText = text
-  
-  renderTemplate({ state, actions })
-}
+  _addMessage() {
+    this._state.dialogsPage.messages.push(
+      {
+        id: 5,
+        text: this._state.dialogsPage.messageText,
+      }
+    )
+    this._state.dialogsPage.messageText = ''
+    this._callSubscription()
+  },
 
-const addPost = () => {
-  state.profilePage.posts.push(
-    {
-      id: 5,
-      text: state.profilePage.textAreaContent,
-      like: 0
+  dispatch(action) {
+    switch(action.type) {
+      case "ADD_POST": 
+        this._addPost()
+        break
+      case "ADD_MESSAGE":
+        this._addMessage()
+        break
+      case "INPUT_POST_TEXT": 
+        this._inputPostText(action.text)
+        break
+      case "INPUT_MESSAGE_TEXT":
+        this._inputMessageText(action.text)
+        break
+      default: 
+        console.error("Нет такого действия")
     }
-  )
-  state.profilePage.textAreaContent = ''
-  renderTemplate({ state, actions })
+  },
+
+  subscribe(observer) {
+    this._callSubscription = observer
+  },
+
+  getState() {
+    return this._state
+  },
 }
 
-const addMessage = () => {
-  state.dialogsPage.messages.push(
-    {
-      id: 5,
-      text: state.dialogsPage.messageText,
-    }
-  )
-  state.dialogsPage.messageText = ''
-  renderTemplate({ state, actions })
-}
-
-export const actions= {
-  inputText,
-  inputMessageText,
-  addPost,    
-  addMessage,
-}
-
-export const subscribe = (observer) => {
-  renderTemplate = observer
-}
-
-export default state
+export default store
