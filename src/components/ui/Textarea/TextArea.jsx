@@ -2,22 +2,18 @@ import React from "react"
 import s from "./TextArea.module.css"
 
 const TextArea = ({ dispatch, text, actions }) => {
-  const textAreaRef = React.createRef()
 
   const clickBtnHandler = () => {
-    dispatch({ type: actions.addAction })
+    dispatch(actions.addActionCreator())
   }
 
-  const inputTextHandler = () => {
-    dispatch({ 
-      type: actions.inputAction, 
-      text: textAreaRef.current.value 
-    })
+  const inputTextHandler = (e) => {
+    dispatch(actions.inputActionCreator(e.target.value))
   }
 
   return (
     <div>
-      <textarea ref={textAreaRef} onChange={inputTextHandler} value={text} />
+      <textarea onChange={inputTextHandler} value={text} />
       <button onClick={clickBtnHandler}>Add</button>
     </div>
   )

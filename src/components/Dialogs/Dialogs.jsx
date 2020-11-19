@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css"
 import DialogsItem from "./DialogsItem/DialogsItem"
 import MessageItem from "./MessageItem/MessageItem"
 import TextArea from "../ui/Textarea/TextArea"
+import { addMessageCreator, inputTextMessageCreator } from "../redux/dialogsPageReducers"
 
 const Dialogs = ({ state, dispatch }) => {
   return (
@@ -15,7 +16,7 @@ const Dialogs = ({ state, dispatch }) => {
         <TextArea 
           dispatch={dispatch} 
           text={state.messageText} 
-          actions={{ addAction: "ADD_MESSAGE", inputAction: "INPUT_MESSAGE_TEXT" }}/>
+          actions={{ addActionCreator: addMessageCreator, inputActionCreator: inputTextMessageCreator }}/>
       </div>
     </div>
   )

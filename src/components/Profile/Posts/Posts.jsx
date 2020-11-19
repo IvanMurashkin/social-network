@@ -2,6 +2,7 @@ import React from "react"
 import Post from "./Post/Post"
 import TextArea from "../../ui/Textarea/TextArea"
 import s from "./Posts.module.css"
+import { addPostCreator, inputTextPostCreator } from "../../redux/profilePageReducer"
 
 const Posts = ({ posts, dispatch, textNewPost }) => {
     return ( 
@@ -11,7 +12,7 @@ const Posts = ({ posts, dispatch, textNewPost }) => {
         <TextArea 
           dispatch={dispatch} 
           text={textNewPost} 
-          actions={{ addAction: "ADD_POST", inputAction: "INPUT_POST_TEXT" }} />
+          actions={{ addActionCreator: addPostCreator, inputActionCreator: inputTextPostCreator }} />
         </div>
         <div>
             {posts.map((post) => <Post message={post.text} likeCount={post.like}/>)}
