@@ -4,6 +4,7 @@ import Friends from "./Friends/Friends"
 import s from "./Navbar.module.css"
 
 const Navbar = ({ state }) => {
+    debugger
     return (<div className={s.sidebar}>
           <div className={s.item}>
             <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>

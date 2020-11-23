@@ -1,7 +1,15 @@
 const ADD_POST = "ADD_POST"
 const INPUT_POST_TEXT = "INPUT_POST_TEXT"
 
-const profilePageReducer = (state, action) => {
+const initialState = {
+  posts: [
+    {id: 1, text: "Hkjfv kdsjfnsd;k;dknf", like: 5},
+    {id: 2, text: "Rfgdf", like: 2},
+  ],
+  textPost: '',
+}
+
+const profilePageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       state.posts.push(

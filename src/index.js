@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
-import store from "./components/redux/store"
+import store from "./components/redux/redux-store"
 
 const renderTemplate = () => {
   ReactDOM.render(

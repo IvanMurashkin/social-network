@@ -1,7 +1,19 @@
 const ADD_MESSAGE = "ADD_MESSAGE"
 const INPUT_MESSAGE_TEXT = "INPUT_MESSAGE_TEXT"
 
-const dialogsPageReducer = (state, action) => {
+const initialState = {
+    dialogs: [
+      {id: 1, userName: "Vasya"},
+      {id: 2, userName: "Anna"},
+    ],
+    messages: [
+      {id: 1, text: "Ljdso msh j hbasdjf"},
+      {id: 2, text: "Yur jsls lsaldvfnj"},
+    ],
+    messageText: '',
+}
+
+const dialogsPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       state.messages.push(
