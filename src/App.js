@@ -2,8 +2,6 @@
 import React from "react"
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile"; 
-import Dialogs from "./components/Dialogs/Dialogs"
 import News from "./components/News/News"
 import Music from "./components/Music/Music"
 import Settings from "./components/Settings/Settings"
@@ -11,23 +9,22 @@ import Settings from "./components/Settings/Settings"
 import {BrowserRouter, Route} from "react-router-dom"
 
 import './App.css';
+import DialogsContainer from "./components/Dialogs/DIalogsContainer"
+import PostsContainer from "./components/Profile/PostsContainer"
 
-function App({ state, dispatch }) {
+function App() {
   return (
     <BrowserRouter>
       <div className="app">
         <Header />      
         <div className="content">
-          <Navbar state={state.sidebar}/>
+          <Navbar state={[]}/>
           <div className="main">
-            <Route path="/dialogs" render={() => <Dialogs state={state.dialogsPage} 
-                                                          dispatch={dispatch}/>}/>
+            <Route path="/dialogs" render={() => <DialogsContainer />}/>
             <Route path="/music" render={Music}/> 
             <Route path="/news" render={News}/> 
             <Route path="/settings" render={Settings}/> 
-            <Route path="/profile" render={() => <Profile state={state.profilePage} 
-                                                          dispatch={dispatch}/>}
-                                                  />  
+            <Route path="/profile" render={() => <PostsContainer />}/>  
           </div>
         </div>
       </div>

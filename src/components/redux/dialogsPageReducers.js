@@ -10,7 +10,7 @@ const initialState = {
       {id: 1, text: "Ljdso msh j hbasdjf"},
       {id: 2, text: "Yur jsls lsaldvfnj"},
     ],
-    messageText: '',
+    textMessage: '',
 }
 
 const dialogsPageReducer = (state = initialState, action) => {

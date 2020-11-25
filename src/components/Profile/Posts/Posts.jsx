@@ -4,15 +4,15 @@ import TextArea from "../../ui/Textarea/TextArea"
 import s from "./Posts.module.css"
 import { addPostCreator, inputTextPostCreator } from "../../redux/profilePageReducer"
 
-const Posts = ({ posts, dispatch, textNewPost }) => {
+const Posts = ({ addPost, inputTextNewPost, textNewPost, posts }) => {
     return ( 
     <div>
         <h3>My posts</h3>
         <div> 
         <TextArea 
-          dispatch={dispatch} 
+          inputTextHandler={inputTextNewPost} 
           text={textNewPost} 
-          actions={{ addActionCreator: addPostCreator, inputActionCreator: inputTextPostCreator }} />
+          clickAddBtnHandler={addPost} />
         </div>
         <div>
             {posts.map((post) => <Post message={post.text} likeCount={post.like}/>)}

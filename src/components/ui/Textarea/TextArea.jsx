@@ -1,19 +1,19 @@
 import React from "react"
 import s from "./TextArea.module.css"
 
-const TextArea = ({ dispatch, text, actions }) => {
+const TextArea = ({ clickAddBtnHandler,  inputTextHandler, text}) => {
 
   const clickBtnHandler = () => {
-    dispatch(actions.addActionCreator())
+    clickAddBtnHandler()
   }
 
-  const inputTextHandler = (e) => {
-    dispatch(actions.inputActionCreator(e.target.value))
+  const changeTextHandler = (e) => {
+    inputTextHandler(e.target.value)
   }
 
   return (
     <div>
-      <textarea onChange={inputTextHandler} value={text} />
+      <textarea onChange={changeTextHandler} value={text} />
       <button onClick={clickBtnHandler}>Add</button>
     </div>
   )
