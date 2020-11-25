@@ -10,23 +10,22 @@ const initialState = {
       {id: 1, text: "Ljdso msh j hbasdjf"},
       {id: 2, text: "Yur jsls lsaldvfnj"},
     ],
-    textMessage: '',
+    textNewMessage: '',
 }
 
 const dialogsPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      state.messages.push(
-        {
-          id: 5,
-          text: state.messageText,
-        }
-      )
-      state.messageText = ''
-      return state
+      return {
+        ...state,
+        messages: [...state.messages, { id: 5, text: state.textNewMessage, }],
+        textNewMessage: '',
+      }
     case INPUT_MESSAGE_TEXT:
-      state.messageText = action.text
-      return state
+      return {
+        ...state,
+        textNewMessage: action.text
+      }
     default:
       return state
   }

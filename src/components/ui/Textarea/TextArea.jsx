@@ -1,7 +1,6 @@
 import React from "react"
-import s from "./TextArea.module.css"
 
-const TextArea = ({ clickAddBtnHandler,  inputTextHandler, text}) => {
+const TextArea = ({ clickAddBtnHandler,  inputTextHandler, initialValue}) => {
 
   const clickBtnHandler = () => {
     clickAddBtnHandler()
@@ -13,7 +12,7 @@ const TextArea = ({ clickAddBtnHandler,  inputTextHandler, text}) => {
 
   return (
     <div>
-      <textarea onChange={changeTextHandler} value={text} />
+      <textarea onChange={changeTextHandler} value={initialValue} />
       <button onClick={clickBtnHandler}>Add</button>
     </div>
   )

@@ -1,8 +1,6 @@
 import React from "react"
 import Post from "./Post/Post"
 import TextArea from "../../ui/Textarea/TextArea"
-import s from "./Posts.module.css"
-import { addPostCreator, inputTextPostCreator } from "../../redux/profilePageReducer"
 
 const Posts = ({ addPost, inputTextNewPost, textNewPost, posts }) => {
     return ( 
@@ -11,11 +9,11 @@ const Posts = ({ addPost, inputTextNewPost, textNewPost, posts }) => {
         <div> 
         <TextArea 
           inputTextHandler={inputTextNewPost} 
-          text={textNewPost} 
+          initialValue={textNewPost} 
           clickAddBtnHandler={addPost} />
         </div>
         <div>
-            {posts.map((post) => <Post message={post.text} likeCount={post.like}/>)}
+            {posts.map((post, index) => <Post message={post.text} likeCount={post.like} key={post.id + index}/>)}
         </div>
     </div>
 )

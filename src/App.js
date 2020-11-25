@@ -9,8 +9,8 @@ import Settings from "./components/Settings/Settings"
 import {BrowserRouter, Route} from "react-router-dom"
 
 import './App.css';
-import DialogsContainer from "./components/Dialogs/DIalogsContainer"
-import PostsContainer from "./components/Profile/PostsContainer"
+import DialogsContainer from "./components/Dialogs/DialogsContainer"
+import Profile from "./components/Profile/Profile"
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             <Route path="/music" render={Music}/> 
             <Route path="/news" render={News}/> 
             <Route path="/settings" render={Settings}/> 
-            <Route path="/profile" render={() => <PostsContainer />}/>  
+            <Route path="/profile" render={() => <Profile />}/>  
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import { connect } from "react-redux"
-import { addPostCreator, inputTextPostCreator } from "../redux/profilePageReducer"
-import Posts from "./Posts/Posts"
+import { addPostCreator, inputTextPostCreator } from "../../redux/profilePageReducer"
+import Posts from "./Posts"
 
 const mapStateToProps = (state) => {
   return {
     posts: state.profilePage.posts,
-    textNewPost: state.dialogsPage.textPost,
+    textNewPost: state.profilePage.textNewPost,
   }
-}
+} 
 
 const mapDispatchToProps = (dispatch) => {
   return {
